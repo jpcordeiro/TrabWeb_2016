@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import br.com.controller.LoginController;
+import javax.servlet.http.HttpSession;
 
 public class ServletLogin extends HttpServlet {
 
@@ -19,10 +20,13 @@ public class ServletLogin extends HttpServlet {
         if (LoginController.login(usuario, senha)) {
             response.addCookie(LoginController.getCookie("usuario", usuario));
             response.addCookie(LoginController.getCookie("senha", senha));
+            
+            HttpSession sessao = request.getSession();
+            sessao.setAttribute("usuario_logado", usuario);
 
-            response.sendRedirect("/e-commerce/main.jsp");
+            response.sendRedirect("/TrabWeb_2016/main.jsp");
         } else {
-            response.sendRedirect("/e-commerce");
+            response.sendRedirect("/TrabWeb_2016");
         }
     }
 

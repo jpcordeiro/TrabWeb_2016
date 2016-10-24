@@ -17,10 +17,10 @@ public class Mysql {
             Class.forName("com.mysql.jdbc.Driver");
 
             String serverName = "localhost";
-            String database = "e-commerce";
+            String database = "trabweb_2016";
             String url = "jdbc:mysql://" + serverName + "/" + database;
             String username = "root";
-            String password = "";
+            String password = "root";
 
             connection = DriverManager.getConnection(url, username, password);
 

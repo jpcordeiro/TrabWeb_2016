@@ -14,6 +14,6 @@
 </html>
 
 <% } else {
-        response.sendRedirect("/e-commerce");
+        response.sendRedirect("/TrabWeb_201");
     }
 %>
