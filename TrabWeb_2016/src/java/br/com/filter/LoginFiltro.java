@@ -53,6 +53,8 @@ public class LoginFiltro implements Filter {
             return true;
         } if (servletPath.equals("/ServletLogin")) {
             return true;
+        }  if (servletPath.equals("/ListaCliente.jsp")) {
+            return true;
         } 
         return false;
     }
