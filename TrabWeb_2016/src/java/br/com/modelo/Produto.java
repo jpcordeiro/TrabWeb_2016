@@ -7,13 +7,11 @@ package br.com.modelo;
 public class Produto {
     private int idProduto;
     private String produto;
-    private String informação;
+    private String informacao;
     private Double valor;
 
-    public Produto(int idProduto) {
-        this.idProduto = idProduto;
-    }
-    
+    public Produto() {
+       }
     
 
     public int getIdProduto() {
@@ -32,12 +30,12 @@ public class Produto {
         this.produto = produto;
     }
 
-    public String getInformação() {
-        return informação;
+    public String getInformacao() {
+        return informacao;
     }
 
-    public void setInformação(String informação) {
-        this.informação = informação;
+    public void setInformacao(String informação) {
+        this.informacao = informação;
     }
 
     public Double getValor() {
@@ -50,7 +48,7 @@ public class Produto {
 
     @Override
     public String toString() {
-        return "Produto{" + "idProduto=" + idProduto + ", produto=" + produto + ", informa\u00e7\u00e3o=" + informação + ", valor=" + valor + '}';
+        return  idProduto +  produto + informacao + valor;
     }
 
     @Override

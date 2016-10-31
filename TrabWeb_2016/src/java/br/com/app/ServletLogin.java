@@ -24,7 +24,7 @@ public class ServletLogin extends HttpServlet {
             HttpSession sessao = request.getSession();
             sessao.setAttribute("usuario_logado", usuario);
 
-            response.sendRedirect("/TrabWeb_2016/main.jsp");
+            response.sendRedirect("/TrabWeb_2016/produto.jsp");
         } else {
             response.sendRedirect("/TrabWeb_2016");
         }
