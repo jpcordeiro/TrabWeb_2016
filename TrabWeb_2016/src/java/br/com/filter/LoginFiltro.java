@@ -1,6 +1,5 @@
 package br.com.filter;
 
-import br.com.modelo.Usuario;
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
