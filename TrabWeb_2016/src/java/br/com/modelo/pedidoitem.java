@@ -6,7 +6,7 @@ package br.com.modelo;
  */
 public class pedidoitem {
     
-    private int idPedidoItem;
+    private int idProduto;
     private int idPedido;
     private int Quantidade;
     private double valorUnitario;
@@ -14,12 +14,12 @@ public class pedidoitem {
     public pedidoitem() {
     }
 
-    public int getIdPedidoItem() {
-        return idPedidoItem;
+    public int getIdProduto() {
+        return idProduto;
     }
 
-    public void setIdPedidoItem(int idPedidoItem) {
-        this.idPedidoItem = idPedidoItem;
+    public void setIdProduto(int idProduto) {
+        this.idProduto = idProduto;
     }
 
     public int getIdPedido() {
@@ -48,8 +48,8 @@ public class pedidoitem {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 71 * hash + this.idPedidoItem;
+        int hash = 3;
+        hash = 23 * hash + this.idProduto;
         return hash;
     }
 
@@ -62,11 +62,12 @@ public class pedidoitem {
             return false;
         }
         final pedidoitem other = (pedidoitem) obj;
-        if (this.idPedidoItem != other.idPedidoItem) {
+        if (this.idProduto != other.idProduto) {
             return false;
         }
         return true;
     }
+
     
     
 }
