@@ -28,6 +28,10 @@
         <servlet-name>ServletConsulta</servlet-name>
         <servlet-class>br.com.app.ServletConsulta</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletCarrinho</servlet-name>
+        <servlet-class>br.com.app.ServletCarrinho</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletLogin</servlet-name>
         <url-pattern>/ServletLogin</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>ServletConsulta</servlet-name>
         <url-pattern>/ServletConsulta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletCarrinho</servlet-name>
+        <url-pattern>/ServletCarrinho</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
