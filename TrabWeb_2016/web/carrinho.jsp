@@ -15,6 +15,7 @@
         <br />
         <h1>Carrinho de Compras</h1>         
         <table border="1">
+            <td colspan="5"><a href="/TrabWeb_2016/ListaCliente.jsp"><b>Continuar Comprando</b></a></td>
             <tr>
                 <th>Código</th>
                 <th>Produto</th>
@@ -27,7 +28,7 @@
                 <td><%=session.getAttribute("produto")%></td>
                 <td><%=session.getAttribute("valor")%></td>
                 <td><%=session.getAttribute("qtd")%></td>
-                <td><a href="/TrabWeb_2016/ListaCliente.jsp"><b>Continuar Comprando</b></a></td>
+                <td><a href="/TrabWeb_2016/ServletCarrinho?acao=excluirSessao&idProduto=<%=session.getAttribute("idProduto")%>&produto=<%=session.getAttribute("produto")%>$valor=<%=session.getAttribute("valor")%>&qtd=<%=session.getAttribute("qtd")%>"><b>Excluir</b></a></td>
             </tr>
             
         </table>

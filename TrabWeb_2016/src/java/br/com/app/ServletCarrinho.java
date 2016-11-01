@@ -53,10 +53,40 @@ public class ServletCarrinho extends HttpServlet {
             RequestDispatcher rd = req.getRequestDispatcher("/ListaCliente.jsp");
             rd.forward(req, resp);
         }
+        if (acao.equals("excluirSessao")){
+            HttpSession session = req.getSession();
+            
+            String idProduto2 = (String) session.getAttribute("idProduto");
+            String qtd3 = (String) session.getAttribute("qtd");
+            
+            String idProduto = req.getParameter("idProduto");
+            String produto = req.getParameter("produto");
+            String valor = req.getParameter("valor");
+            String qtd = req.getParameter("qtd");
+            
+            Integer qtd2 = Integer.parseInt(qtd);
+            Integer qtd4 = Integer.parseInt(qtd3);
+            
+            if (idProduto.equals(idProduto2)){
+                if (qtd2 > 1){
+                    Integer memos = qtd4 - 1;
+                    qtd = memos.toString();
+                    session.setAttribute("qtd", qtd);
+                }else{
+                
+                session.removeAttribute("idProduto");
+                session.removeAttribute("produto");
+                session.removeAttribute("valor");
+                session.removeAttribute("qtd");
+            }
+            RequestDispatcher rd = req.getRequestDispatcher("/carrinho.jsp");
+            rd.forward(req, resp);
+            
+        }
         
          }
         
-        
+    }   
     
     
 }
