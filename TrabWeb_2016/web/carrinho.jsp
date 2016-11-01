@@ -13,8 +13,7 @@
     </head>
     <body>
         <br />
-        <%=session.getAttribute("carrinho")%>
-         
+        <h1>Carrinho de Compras</h1>         
         <table border="1">
             <tr>
                 <th>Código</th>

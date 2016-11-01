@@ -3,6 +3,8 @@ package br.com.app;
 import br.com.modelo.Produto;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -26,12 +28,11 @@ public class ServletCarrinho extends HttpServlet {
             String idProduto = req.getParameter("idProduto");
             String produto = req.getParameter("produto");
             String valor = req.getParameter("valor");
-            
-            
+          //fazer um array de sessão para guardar varias compras  
             HttpSession session = req.getSession();
             session.setAttribute("idProduto", idProduto);
             session.setAttribute("produto", produto);
-             session.setAttribute("valor", valor);
+            session.setAttribute("valor", valor);
             
 
             RequestDispatcher rd = req.getRequestDispatcher("/ListaCliente.jsp");
