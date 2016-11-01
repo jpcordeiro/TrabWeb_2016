@@ -28,11 +28,26 @@ public class ServletCarrinho extends HttpServlet {
             String idProduto = req.getParameter("idProduto");
             String produto = req.getParameter("produto");
             String valor = req.getParameter("valor");
-          //fazer um array de sessão para guardar varias compras  
+            String qtd = "1";
+          //fazer um array de sessão para guardar varias compras
+            
             HttpSession session = req.getSession();
-            session.setAttribute("idProduto", idProduto);
-            session.setAttribute("produto", produto);
-            session.setAttribute("valor", valor);
+                       
+            String idProduto2 = (String) session.getAttribute("idProduto");
+            
+            if(idProduto.equals(idProduto2)){
+                String qtdSessao = (String) session.getAttribute("qtd");
+                Integer soma = Integer.parseInt(qtdSessao) + Integer.parseInt(qtd);
+                session.setAttribute("idProduto", idProduto);
+                session.setAttribute("produto", produto);
+                session.setAttribute("valor", valor);
+                session.setAttribute("qtd", soma.toString());
+            }else{
+                session.setAttribute("idProduto", idProduto);
+                session.setAttribute("produto", produto);
+                session.setAttribute("valor", valor);
+                session.setAttribute("qtd", qtd);
+            }
             
 
             RequestDispatcher rd = req.getRequestDispatcher("/ListaCliente.jsp");

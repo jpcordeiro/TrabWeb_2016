@@ -26,7 +26,7 @@
                 <td><%=session.getAttribute("idProduto")%></td>
                 <td><%=session.getAttribute("produto")%></td>
                 <td><%=session.getAttribute("valor")%></td>
-                <td>1</td>
+                <td><%=session.getAttribute("qtd")%></td>
                 <td><a href="/TrabWeb_2016/ListaCliente.jsp"><b>Continuar Comprando</b></a></td>
             </tr>
             
