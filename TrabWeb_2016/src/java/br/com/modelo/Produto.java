@@ -49,28 +49,6 @@ public class Produto {
     @Override
     public String toString() {
         return  idProduto +  produto + informacao + valor;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Produto other = (Produto) obj;
-        if (this.idProduto != other.idProduto) {
-            return false;
-        }
-        return true;
-    }
-    
+    }   
     
 }

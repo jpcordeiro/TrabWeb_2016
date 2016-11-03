@@ -36,7 +36,7 @@
                 <td><%= prod.getProduto()%></td>
                 <td><%= prod.getInformacao()%></td>
                 <td><%= prod.getValor()%></td>
-                <td><a href="/TrabWeb_2016/ServletCarrinho?acao=addProduto&idProduto=<%= prod.getIdProduto()%>&produto=<%=prod.getProduto()%>&valor=<%=prod.getValor()%>"><b>Adicionar Carrinho</b></a></td>
+                <td><a href="/TrabWeb_2016/ServletPedido?acao=addProduto&idProduto=<%= prod.getIdProduto()%>"><b>Adicionar Carrinho</b></a></td>
             </tr>
             <%  } %>
         </table>

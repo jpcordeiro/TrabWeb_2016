@@ -73,20 +73,55 @@ public class ProdutoDao{
         rs.close();
         return produtos;
     }
+    
+    
+    public ResultSet consultaId(int id) throws SQLException  {
+        ResultSet resultset = null;
+        String sql = "SELECT * FROM PRODUTO WHERE ID = "  + id;
+        PreparedStatement ps = conexao.prepareCall(sql);
+        ResultSet rs = ps.executeQuery();
+        //List<Produto> produtos = new ArrayList<Produto>();
 
-    public Produto retornaProdutoId(Produto p) throws SQLException{
+       
+             Produto p = new Produto();
+             p.setIdProduto(rs.getInt("idProduto"));
+             p.setProduto(rs.getString("produto"));
+             p.setInformacao(rs.getString("informacao"));
+             p.setValor(rs.getDouble("valor"));
+            // produtos.add(p);
+        rs.close();
+        return resultset;
+    }
+
+    public Produto retornaProdutoId(int idProduto) throws SQLException{
+        Produto prod = new Produto();
         String sql = "SELECT * FROM produto WHERE idProduto = ?";
         PreparedStatement ps = conexao.prepareStatement(sql);
-        ps.setInt(1, p.getIdProduto());
+        ps.setInt(1, idProduto);
         ResultSet result = ps.executeQuery();
         
         result.next();
-        p.setIdProduto(result.getInt("idProduto"));
-        p.setProduto(result.getString("prdoduto"));
-        p.setInformacao(result.getString("informacao"));
-        p.setValor(result.getDouble("VALOR"));
+        prod.setIdProduto(result.getInt("idProduto"));
+        prod.setProduto(result.getString("produto"));
+        prod.setInformacao(result.getString("informacao"));
+        prod.setValor(result.getDouble("valor"));
         result.close();
-        return p;
+        return prod;
     }
     
+     public Produto retornaProdutoId(Produto obj) throws SQLException{
+        String sql =  "SELECT * FROM produto WHERE idProduto = ?";
+        PreparedStatement p = conexao.prepareStatement(sql);
+        p.setInt(1, obj.getIdProduto());
+        ResultSet result = p.executeQuery();
+        
+        result.next();
+        obj.setIdProduto(result.getInt("idProduto"));
+        obj.setProduto(result.getString("produto"));
+        obj.setInformacao(result.getString("informacao"));
+        obj.setValor(result.getDouble("valor"));
+        result.close();
+        
+        return obj;
+    }
 }

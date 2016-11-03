@@ -1,6 +1,7 @@
 package br.com.controller;
 
 import br.com.conexao.Mysql;
+import br.com.modelo.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -54,4 +55,28 @@ public class LoginController {
     public static Cookie getCookie(String erro, boolean b) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    
+    public int getIdUsuario(String usuario) throws SQLException {
+
+        Connection con = Mysql.getConexaoMySQL();
+        Usuario user = new Usuario();
+        String sql = "SELECT * FROM usuario WHERE usuario = ?";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, usuario);
+        ResultSet result = ps.executeQuery();
+        
+        
+
+        try {
+            result.first();
+            int id = result.getInt("idUsuario");
+            return id;
+        } catch (SQLException ex) {
+            System.out.println("Erro ao consultar usuário por descrição!: " + ex);
+            return 0;
+        }
+
+    }
+
 }

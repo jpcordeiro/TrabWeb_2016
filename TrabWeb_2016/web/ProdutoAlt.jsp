@@ -25,7 +25,7 @@
             <input type="text" name="produto" value="<%=prod.getProduto()%>" />
             <br /><br />
             <label>Informação</label><br />
-            <textarea name="informacao" rows="10" cols="50" value="<%=prod.getInformacao()%>"></textarea>
+             <input type="text" name="informacao" value="<%=prod.getInformacao()%>" />
             <br /><br />
             <label>Valor</label><br />
             <input type="text" name="valor" value="<%=prod.getValor()%>" />

@@ -14,8 +14,8 @@
         <title>Produtos</title>
     </head>
     <body>
-        <%@include file="/WEB-INF/includes/logout.jsp"%> 
-       
+        <a href="<%="/TrabWeb_2016"%>"> <button>Sair</button></a>
+          
         <br />
         <% if (produtos != null) { %>
         <table border="1">

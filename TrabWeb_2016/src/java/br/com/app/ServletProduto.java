@@ -100,15 +100,16 @@ public class ServletProduto extends HttpServlet {
         listaProdutos(req, resp);
     }
     
-    private void editarProduto(HttpServletRequest req, HttpServletResponse resp, String id) throws ServletException, IOException {
-        prod.setIdProduto(Integer.parseInt(id));
+    private void editarProduto(HttpServletRequest req, HttpServletResponse resp, String idProduto) throws ServletException, IOException {
+        prod.setIdProduto(Integer.parseInt(idProduto));
         {
-//            try {
-                req.setAttribute("produto", prod);
+            try{
+                req.setAttribute("produto", prodDao.retornaProdutoId(prod));
                 req.getRequestDispatcher("/ProdutoAlt.jsp").forward(req, resp);
-//            } catch (SQLException ex) {
-//                Logger.getLogger(ServletProduto.class.getName()).log(Level.SEVERE, null, ex);
-//            }
+            }catch(SQLException ex){
+                Logger.getLogger(ServletProduto.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
         }
     }
 

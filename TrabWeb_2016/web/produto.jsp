@@ -18,6 +18,8 @@
         <% if (mensagemErro != null) {%>
         <p class="erro"><%= mensagemErro%></p>
         <% }%>
+        <a href="<%="/TrabWeb_2016/ServletProduto?acao=listar"%>"> <button>Lista de Produto</button></a>
+      
         <form action="ServletProduto" method="POST">
             <input type="hidden" name="idProduto" value="" />
             <label>Descrição</label><br />

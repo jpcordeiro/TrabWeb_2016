@@ -1,6 +1,10 @@
 
 package br.com.modelo;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 /**
  *
  * @author JOÃO PAULO
@@ -8,10 +12,7 @@ package br.com.modelo;
 public class Pedido {
     private int idPedido;
     private int idUsuario;
-
-    public Pedido(int idPedido) {
-        this.idPedido = idPedido;
-    }
+    private List<pedidoitem> itens;
 
     public int getIdPedido() {
         return idPedido;
@@ -29,28 +30,28 @@ public class Pedido {
         this.idUsuario = idUsuario;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 23 * hash + this.idPedido;
-        return hash;
+    public List<pedidoitem> getItens() {
+        return itens;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Pedido other = (Pedido) obj;
-        if (this.idPedido != other.idPedido) {
-            return false;
-        }
-        return true;
+    public void setItens(List<pedidoitem> itens) {
+        this.itens = itens;
     }
     
+ public void adicionarProduto(pedidoitem pItem){
+        if(this.itens==null){
+            this.itens = new ArrayList<pedidoitem>();
+        }
+        this.itens.add(pItem);
+    }
     
+    public void removerProduto(pedidoitem pedidoItemRemover){
+        for(Iterator it = itens.iterator(); it.hasNext();){
+            pedidoitem pItem = (pedidoitem) it.next();
+            if (pItem.getProduto().getIdProduto()== pedidoItemRemover.getProduto().getIdProduto()) {
+                it.remove();
+            }
+        }
+    }
     
 }

@@ -6,28 +6,32 @@ package br.com.modelo;
  */
 public class pedidoitem {
     
-    private int idProduto;
-    private int idPedido;
+    
     private int Quantidade;
     private double valorUnitario;
+    
+    private Produto produto = new Produto();
+    private Pedido pedido = new Pedido();
 
     public pedidoitem() {
     }
 
-    public int getIdProduto() {
-        return idProduto;
+    public Pedido getPedido() {
+        return pedido;
     }
 
-    public void setIdProduto(int idProduto) {
-        this.idProduto = idProduto;
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
 
-    public int getIdPedido() {
-        return idPedido;
+   
+
+    public Produto getProduto() {
+        return produto;
     }
 
-    public void setIdPedido(int idPedido) {
-        this.idPedido = idPedido;
+    public void setProduto(Produto produto) {
+        this.produto = produto;
     }
 
     public int getQuantidade() {
@@ -44,28 +48,6 @@ public class pedidoitem {
 
     public void setValorUnitario(double valorUnitario) {
         this.valorUnitario = valorUnitario;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 23 * hash + this.idProduto;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final pedidoitem other = (pedidoitem) obj;
-        if (this.idProduto != other.idProduto) {
-            return false;
-        }
-        return true;
     }
 
     
