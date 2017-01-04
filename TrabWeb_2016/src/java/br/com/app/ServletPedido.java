@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.controller.ProdutoDao;
 import br.com.modelo.Pedido;
 import br.com.modelo.Produto;
+import br.com.modelo.Produto2;
 import br.com.modelo.pedidoitem;
-import br.com.modelo.produto2;
 import java.awt.Dialog;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -39,6 +39,8 @@ public class ServletPedido extends HttpServlet {
             if (pedido == null) {
                 pedido = new Pedido();
                 sessao.setAttribute("pedido", pedido);
+                Produto2 prod = new Produto2();
+                sessao.setAttribute("produto", prod);
             }
 
             if (pedido.getItens() != null) {
@@ -93,9 +95,10 @@ public class ServletPedido extends HttpServlet {
         } else if (acao.equals("comprar")) {
             HttpSession sessao = req.getSession();
          //   ArrayList<Pedido> produtos = (ArrayList) sessao.getAttribute("pedido");
+             
 
             PedidoDao pedidoDAO = new PedidoDao();
-            Pedido pedido = new Pedido();
+           Pedido pedido = new Pedido();
 
             Cookie[] cookies = req.getCookies();
             LoginController login = new LoginController();
@@ -109,14 +112,14 @@ public class ServletPedido extends HttpServlet {
             pedido.setIdUsuario(idUsuario);
             try {
                 pedidoDAO.inserir(pedido);
+                req.setAttribute("mensagem_erro", "Compra realizada com sucesso!.");
             } catch (SQLException ex) {
                 Logger.getLogger(ServletPedido.class.getName()).log(Level.SEVERE, null, ex);
             }
             
             RequestDispatcher rd = req.getRequestDispatcher("/carrinho.jsp");
             rd.forward(req, resp);
-
-
+            
 //            pedidoitem pItem = new pedidoitem();
 //            PedidoItenDao PIDAO = new PedidoItenDao();
 //
@@ -135,8 +138,10 @@ public class ServletPedido extends HttpServlet {
 //                    Logger.getLogger(ServletPedido.class.getName()).log(Level.SEVERE, null, ex);
 //                }
 //            }
+                
         }
     }
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

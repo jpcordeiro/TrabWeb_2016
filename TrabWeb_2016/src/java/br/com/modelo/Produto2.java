@@ -1,32 +1,56 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.modelo;
 
 /**
  *
- * @author JOÃO PAULO
+ * @author Raul
  */
-public class produto2 {
-private int idPedido;
-    private int idUsuario;
 
-    public int getIdPedido() {
-        return idPedido;
+public class Produto2 {
+    
+    private int id;
+    private String descricao;
+    private String informacao;
+    private int quantidade;
+    private double valor;
+    
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setIdPedido(int idPedido) {
-        this.idPedido = idPedido;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public String getInformacao() {
+        return informacao;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setInformacao(String informacao) {
+        this.informacao = informacao;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
     
     

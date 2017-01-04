@@ -9,6 +9,7 @@ import br.com.conexao.Mysql;
 import br.com.modelo.Pedido;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -31,6 +32,22 @@ public class PedidoDao {
         ps.setInt(1,objeto.getIdUsuario());;
         ps.execute();
         ps.close();
+    }
+    
+    public String ultimaOcorrencia(String tabela, String atributo) throws SQLException {
+        ResultSet rs =  null;
+        PreparedStatement ps = conexao.prepareStatement("SELECT COALESCE(MAX(" + atributo + "), 0) AS ULTIMO FROM ");
+         ps.setString(1, tabela);
+         ps.execute();
+         ps.close();
+        
+        try {
+            rs.first();
+            return rs.getString("ULTIMO");
+        } catch (SQLException ex) {
+            System.out.println("Erro ao encontrar número de sequência! " + ex);
+            return "";
+        }
     }
 }
      

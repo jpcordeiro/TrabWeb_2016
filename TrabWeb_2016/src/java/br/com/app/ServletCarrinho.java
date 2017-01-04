@@ -40,11 +40,13 @@ public class ServletCarrinho extends HttpServlet {
                 session.setAttribute("produto", produto);
                 session.setAttribute("valor", valor);
                 session.setAttribute("qtd", soma.toString());
+                
             }else{
                 session.setAttribute("idProduto", idProduto);
                 session.setAttribute("produto", produto);
                 session.setAttribute("valor", valor);
                 session.setAttribute("qtd", qtd);
+                
             }
             
 

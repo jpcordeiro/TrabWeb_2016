@@ -10,14 +10,21 @@
 <%@page import="java.util.List"%>
 <%@page import="javax.servlet.http.HttpSession"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>      
+<!DOCTYPE html> 
+<%
+    String mensagemErro = (String) request.getAttribute("mensagem_erro");
+    
+%>
 <html>
     <head> 
         <title>Carrinho</title>
     </head>
     <body>
         <br />
-        <h1>Carrinho de Compras</h1>         
+        <h1>Carrinho de Compras</h1> 
+         <% if (mensagemErro != null) {%>
+        <p class="erro"><%= mensagemErro%></p>
+        <% }%>
         <table border="1">
             <td colspan="5"><a href="/TrabWeb_2016/ListaCliente.jsp"><b>Continuar Comprando</b></a></td>
             <tr>

@@ -88,6 +88,7 @@ public class ServletProduto extends HttpServlet {
             try {
                 prodDao.inserir(produto);;
                 listaProdutos(req, resp);
+                req.setAttribute("mensagem_erro", "Cadastrado com sucesso!.");
             } catch (SQLException ex) {
                 Logger.getLogger(ServletProduto.class.getName()).log(Level.SEVERE, null, ex);
             }
